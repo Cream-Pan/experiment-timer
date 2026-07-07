@@ -107,9 +107,8 @@ function startTask() {
     let now = getTime();
 
     logs.push({
-        task: task.name,
-        start: formatTimestamp(Date.now()),
-        end: null
+        Task_Name: task.name,
+        Timestamp: formatTimestamp(Date.now())
     });
 
     taskName.textContent = task.name;
@@ -137,7 +136,6 @@ function startTask() {
 
 function finishTask() {
     clearInterval(timerID);
-    logs[logs.length - 1].end = formatTimestamp(Date.now());
 
     currentTaskIndex++;
 
@@ -182,10 +180,9 @@ function beep() {
 
 // CSV
 document.getElementById("downloadBtn").onclick = () => {
-    let csv = "Participant,Task,Start,End\n";
-
+    let csv = "Task_Name,Timestamp\n";
     logs.forEach(l => {
-        csv += `${participantID},${l.task},${l.start},${l.end}\n`;
+        csv += `${l.Task_Name},${l.Timestamp}\n`;
     });
 
     let bom = "\uFEFF";

@@ -116,11 +116,11 @@
       "tasks": [
         {
           "name": "順応(5分)",
-          "duration": 3
+          "duration": 10
         },
         {
           "name": "安静(5分)",
-          "duration": 3
+          "duration": 10
         }
       ]
     }
