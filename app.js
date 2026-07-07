@@ -193,7 +193,7 @@ document.getElementById("downloadBtn").onclick = () => {
     let a = document.createElement("a");
 
     a.href = URL.createObjectURL(blob);
-    a.download = `${participantID}_${currentExperiment.id}_${getFileTime()}.csv`;
+    a.download = `${participantID}_${currentExperiment.id}_log.csv`;
     a.click();
 };
 
@@ -202,26 +202,6 @@ function getTime() {
     return new Date().toLocaleString("ja-JP", {
         timeZone: "Asia/Tokyo"
     });
-}
-
-function getFileTime(){
-
-    const date =new Date().toLocaleString(
-        "ja-JP",
-        {
-        timeZone:"Asia/Tokyo"
-        }
-    );
-
-    const d = new Date();
-
-    const yyyy =d.getFullYear();
-    const mm =String(d.getMonth()+1).padStart(2,"0");
-    const dd =String(d.getDate()).padStart(2,"0");
-    const hh =String(d.getHours()).padStart(2,"0");
-    const min =String(d.getMinutes()).padStart(2,"0");
-
-    return `${yyyy}${mm}${dd}${hh}${min}`;
 }
 
 // キーボード操作
