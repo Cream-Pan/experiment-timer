@@ -1,0 +1,218 @@
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  font-size: clamp(14px, 1.6vw, 16px);
+  margin: 1rem;
+  background-color: rgb(241, 241, 226);
+  color: #333;
+}
+
+h1 {
+  color: #46a15f;
+  font-weight: 700;
+}
+
+/* =========================
+   全体コントロール
+========================= */
+
+.toolbar {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin: 0 0 1rem 0;
+}
+
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin-bottom: 0.5rem;
+  align-items: center;
+}
+
+/* =========================
+   ボタン
+========================= */
+
+button {
+  padding: 0.5em 1em;
+  border: none;
+  border-radius: 4px;
+  background-color: #46a15f;
+  color: #fff;
+  font-size: 1em;
+  cursor: pointer;
+}
+
+button:hover:not(:disabled) {
+  background-color: #005fa3;
+}
+
+button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* =========================
+   デバイス選択
+========================= */
+
+select.device-select {
+  padding: 0.4em;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background: #fff;
+  max-width: 100%;
+  font-size: 1em;
+}
+
+/* =========================
+   レイアウト
+========================= */
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+
+@media (min-width: 1000px) {
+  .grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.subgrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+  margin-bottom: 1rem;
+}
+
+/* スマホなど画面幅が狭い場合は，左右デバイスを縦並びにする */
+@media (max-width: 700px) {
+  .subgrid {
+    grid-template-columns: 1fr;
+  }
+  .device-chart-container {
+    height: 720px;
+  }
+}
+
+/* =========================
+   パネル
+========================= */
+
+.panel {
+  background-color: #ffffff;
+  padding: 1.5rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  margin-bottom: 1.5rem;
+}
+
+.section-title {
+  margin-top: 0;
+  border-bottom: 2px solid #46a15f;
+  padding-bottom: 0.5rem;
+  color: #333;
+}
+
+/* =========================
+   デバイスボックス
+========================= */
+
+.box {
+  background: #f9f9f9;
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #eee;
+}
+
+.box h3 {
+  margin: 0 0 10px 0;
+  font-size: 1.1em;
+  color: #555;
+}
+
+/* =========================
+   データ表示
+========================= */
+
+.row {
+  font-size: 0.9em;
+  margin: 3px 0;
+}
+
+.val {
+  font-variant-numeric: tabular-nums;
+  font-weight: bold;
+}
+
+.tiny-muted {
+  font-size: 0.8em;
+  color: #777;
+  margin-top: 5px;
+}
+
+/* =========================
+   動的デバイス操作
+========================= */
+
+.panel-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0 0 1rem 0;
+  flex-wrap: wrap;
+}
+
+.add-device-btn {
+  background-color: #46a15f;
+}
+
+.box-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.box-header h3 {
+  margin: 0;
+}
+
+.close-device-btn {
+  background-color: #777;
+  padding: 0.35em 0.65em;
+  font-size: 0.9em;
+}
+
+.close-device-btn:hover:not(:disabled) {
+  background-color: #444;
+}
+
+/* =========================
+   デバイスごとのグラフ
+========================= */
+
+.device-chart-container {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 8px;
+  margin-top: 0.8rem;
+  background: #fff;
+  height: 240px;
+}
+
+.device-chart-container canvas {
+  width: 100% !important;
+  max-height: 100% !important;
+  max-height: none !important;
+}

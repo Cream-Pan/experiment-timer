@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>Experiment Timer</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>実験管理タイマー</h1>
+
+    <div class="panel">
+        <h2 class="section-title">実験設定</h2>
+
+        <label>参加者ID</label>
+        <input id="participantID" class="device-select" placeholder="例: P001">
+
+        <br><br>
+
+        <label>実験</label>
+        <select id="experimentSelect" class="device-select"></select>
+
+        <div class="toolbar">
+            <button id="startBtn">実験開始 (Enter)</button>
+            <button id="pauseBtn" disabled>一時停止 (Space)</button>
+            <button id="cancelBtn" disabled>キャンセル (Esc)</button>
+            <button id="downloadBtn" disabled>CSV保存</button>
+        </div>
+    </div>
+
+    <div class="panel">
+        <h2 class="section-title">現在のタスク</h2>
+        <h2 id="taskName">待機中</h2>
+        <p>残り時間：<span id="timer" class="val">--</span>秒</p>
+        <p id="status">停止中</p>
+    </div>
+
+    <div class="panel">
+        <h2 class="section-title">タスク一覧</h2>
+        <div id="taskList"></div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
