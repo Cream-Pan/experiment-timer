@@ -1,17 +1,11 @@
 let experiments;
-
 let currentExperiment;
 let currentTaskIndex = 0;
-
 let timerID = null;
-
 let remaining = 0;
-
 let running = false;
 let paused = false;
-
 let logs = [];
-
 let participantID = "";
 
 // DOM
@@ -51,6 +45,18 @@ function showTasks() {
         p.textContent = `${i + 1}. ${task.name}`;
         taskList.appendChild(p);
     });
+}
+
+function formatTimestamp(epochMs) {
+  const now = new Date(epochMs);
+  const year = now.getFullYear();
+  const month = String(now.getMonth() + 1).padStart(2, '0');
+  const day = String(now.getDate()).padStart(2, '0');
+  const hours = String(now.getHours()).padStart(2, '0');
+  const minutes = String(now.getMinutes()).padStart(2, '0');
+  const seconds = String(now.getSeconds()).padStart(2, '0');
+  const milliseconds = String(now.getMilliseconds()).padStart(3, '0');
+  return `${year}/${month}/${day} ${hours}:${minutes}:${seconds}.${milliseconds}`;
 }
 
 // 開始
@@ -102,7 +108,7 @@ function startTask() {
 
     logs.push({
         task: task.name,
-        start: now,
+        start: formatTimestamp(Date.now()),
         end: null
     });
 
@@ -131,7 +137,7 @@ function startTask() {
 
 function finishTask() {
     clearInterval(timerID);
-    logs[logs.length - 1].end = getTime();
+    logs[logs.length - 1].end = formatTimestamp(Date.now());
 
     currentTaskIndex++;
 
@@ -182,7 +188,8 @@ document.getElementById("downloadBtn").onclick = () => {
         csv += `${participantID},${l.task},${l.start},${l.end}\n`;
     });
 
-    let blob = new Blob([csv], { type: "text/csv" });
+    let bom = "\uFEFF";
+    let blob = new Blob([bom + csv], { type: "text/csv;charset=utf-8" });
     let a = document.createElement("a");
 
     a.href = URL.createObjectURL(blob);
@@ -197,11 +204,24 @@ function getTime() {
     });
 }
 
-function getFileTime() {
-    return new Date()
-        .toISOString()
-        .replace(/[-:TZ.]/g, "")
-        .slice(0, 14);
+function getFileTime(){
+
+    const date =new Date().toLocaleString(
+        "ja-JP",
+        {
+        timeZone:"Asia/Tokyo"
+        }
+    );
+
+    const d = new Date();
+
+    const yyyy =d.getFullYear();
+    const mm =String(d.getMonth()+1).padStart(2,"0");
+    const dd =String(d.getDate()).padStart(2,"0");
+    const hh =String(d.getHours()).padStart(2,"0");
+    const min =String(d.getMinutes()).padStart(2,"0");
+
+    return `${yyyy}${mm}${dd}${hh}${min}`;
 }
 
 // キーボード操作

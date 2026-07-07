@@ -1,6 +1,80 @@
 {
   "experiments": [
     {
+      "id": "experiment1",
+      "name": "実験１",
+
+      "tasks": [
+        {
+          "name": "順応(5分)",
+          "duration": 300
+        },
+        {
+          "name": "安静(5分)",
+          "duration": 300
+        },
+        {
+            "name": "朗読(１分)",
+            "duration": 60
+        },
+        {
+          "name": "トレッドミルへ移動・準備(2分)",
+          "duration": 120
+        },
+        {
+          "name": "トレッドミル歩行 4km/h(5分)",
+          "duration": 300
+        },
+        {
+          "name": "トレッドミル早歩き 5.5km/h(5分)",
+          "duration": 300
+        },
+        {
+          "name": "椅子へ移動・準備(30秒)",
+          "duration": 30
+        },
+        {
+          "name": "回復状態の測定(5分)",
+          "duration": 300
+        }
+      ]
+    },
+    {
+      "id": "experiment2",
+      "name": "実験2",
+
+      "tasks": [
+        {
+          "name": "順応(5分)",
+          "duration": 300
+        },
+        {
+          "name": "安静(5分)",
+          "duration": 300
+        },
+        {
+          "name": "トレッドミルへ移動・準備(2分)",
+          "duration": 120
+        },
+        {
+          "name": "トレッドミル歩行 4km/h(5分)",
+          "duration": 300
+        },
+        {
+          "name": "トレッドミル早歩き 6km/h(5分)",
+          "duration": 300
+        },
+        {
+          "name": "椅子へ移動・準備(30秒)",
+          "duration": 30
+        },
+        {
+          "name": "回復状態の測定(5分)",
+          "duration": 300
+        }
+      ]
+    },
+    {
       "id": "pre_experiment1",
       "name": "旧実験１",
 
@@ -32,6 +106,21 @@
         {
           "name": "回復状態の測定(5分)",
           "duration": 300
+        }
+      ]
+    },
+    {
+      "id": "test",
+      "name": "test",
+
+      "tasks": [
+        {
+          "name": "順応(5分)",
+          "duration": 3
+        },
+        {
+          "name": "安静(5分)",
+          "duration": 3
         }
       ]
     }
