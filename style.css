@@ -61,7 +61,7 @@ button:disabled {
    デバイス選択
 ========================= */
 
-select.device-select {
+.device-select {
   padding: 0.4em;
   border: 1px solid #ccc;
   border-radius: 4px;
@@ -114,6 +114,16 @@ select.device-select {
   border-radius: 8px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
   margin-bottom: 1.5rem;
+}
+
+.timer-panel {
+  background-color: #ffffff;
+  padding: 1.5rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  margin-bottom: 1.5rem;
+  text-align: center;
 }
 
 .section-title {
@@ -215,4 +225,16 @@ select.device-select {
   width: 100% !important;
   max-height: 100% !important;
   max-height: none !important;
+}
+
+#timer {
+    font-size: 10.5em;  /* 秒数を大きく表示 */
+    font-weight: bold;
+    color: #46a15f;
+    font-variant-numeric: tabular-nums;
+}
+#taskName {
+    font-size: 4em;
+    font-weight: bold;
+    color: #333;
 }
